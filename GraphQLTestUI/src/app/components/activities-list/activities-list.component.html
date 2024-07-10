@@ -1,0 +1,37 @@
+<div class="container">
+    <div *ngIf="loading" class="spinner-border"></div>
+    <table *ngIf="!loading" class="table table-striped table-bordered table-responsive w-100">
+        <thead>
+            <tr class="bg-light">
+                <th *ngFor="let col of gridColumns" class="th-sm">
+                    <app-column-header-sortable [column]="col" [selectedSort]="sortParameter" (selectedSortChange)="selectedSortChanged($event)"></app-column-header-sortable>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let act of activities">
+                <td>{{act.id}}</td>
+                <td>{{act.desc}}</td>
+                <td>{{act.meas}}</td>
+                <td>{{act.stkflw}}</td>
+                <td>{{act.sort}}</td>
+                <td>
+                    <button type="button"
+                            class="btn btn-outline-primary btn-md dropdown-toggle dropdown-toggle-split px-0 w-100" 
+                            data-bs-toggle="dropdown" 
+                            aria-expanded="false">
+                            Actions
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li>
+                            <button type="button" class="btn btn-outline-primary btn-sm border-0 w-100 text-start">EDIT</button>
+                        </li>
+                        <li>
+                            <button type="button" class="btn btn-outline-primary btn-sm border-0 w-100 text-start" (click)="deleteActivity(act.id)">DELETE</button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

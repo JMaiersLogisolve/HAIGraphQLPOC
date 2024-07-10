@@ -1,0 +1,19 @@
+<div class="modal-header bg-info">
+    <h4 class="modal-title"><span class="px-2">{{modalHeader}}</span></h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+  </div>
+  <div class="modal-body">
+    <div class="row">
+      <div class="col">
+        {{modalBody}}
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button *ngIf="actionButtonText && cancelButtonText" type="button" class="btn btn-outline-secondary" (click)="ok()">{{actionButtonText}}</button>
+    <button *ngIf="actionButtonText && !cancelButtonText" type="submit" class="btn btn-outline-secondary" (click)="ok()">{{actionButtonText}}</button>
+    <button *ngIf="alternateActionButtonText" type="button" class="btn btn-outline-secondary" (click)="alternateAction()">{{alternateActionButtonText}}</button>
+    <button *ngIf="cancelButtonText" type="submit" class="btn btn-outline-secondary" (click)="close()">{{cancelButtonText}}</button>
+  </div>
+  
+  

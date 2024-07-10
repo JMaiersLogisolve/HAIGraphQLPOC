@@ -1,0 +1,14 @@
+<span *ngIf="!column?.isSortable" class="w-100 fw-bold" style="letter-spacing: .1rem; vertical-align: middle" [innerHTML]="column?.displayName"></span>
+<button *ngIf="column?.isSortable" class="btn btn-sm btn-outline-primary btn-embedded text-black fw-bold w-100 py-1"
+        style="letter-spacing: .1rem;" 
+        data-bs-toggle="tooltip"
+        data-bs-placement="top"
+        data-bs-html="true"
+        title="Sort column"
+        (click)="setSort(column?.key)">
+  <span [innerHTML]="column?.displayName" [class.text-primary]="column?.key === selectedSort?.field"></span><span [class.d-none]="column?.key === selectedSort?.field"></span>
+  <span [class.d-none]="column?.key !== selectedSort?.field || selectedSort?.isDescending === false" class="px-1 text-primary"><i class="fa-solid fa-angle-up"></i></span>
+  <span [class.d-none]="column?.key !== selectedSort?.field || selectedSort?.isDescending === true" class="px-1 text-primary"><i class="fa-solid fa-angle-down"></i></span>
+  <span class="pe-3" *ngIf="column?.key !== selectedSort?.field" [class.d-none]="column?.key !== selectedSort?.field"></span>
+</button>
+
