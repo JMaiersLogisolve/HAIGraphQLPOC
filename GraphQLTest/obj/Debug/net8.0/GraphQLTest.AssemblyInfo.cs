@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GraphQLTest")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+f7d6811644175f70d481956cd0e4586faf217f98")]
 [assembly: System.Reflection.AssemblyProductAttribute("GraphQLTest")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GraphQLTest")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
