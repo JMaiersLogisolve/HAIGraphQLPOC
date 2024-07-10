@@ -10,8 +10,8 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button *ngIf="actionButtonText && cancelButtonText" type="button" class="btn btn-outline-secondary" (click)="ok()">{{actionButtonText}}</button>
-    <button *ngIf="actionButtonText && !cancelButtonText" type="submit" class="btn btn-outline-secondary" (click)="ok()">{{actionButtonText}}</button>
+    <button *ngIf="actionButtonText && cancelButtonText" type="button" class="btn btn-outline-primary" (click)="ok()">{{actionButtonText}}</button>
+    <button *ngIf="actionButtonText && !cancelButtonText" type="submit" class="btn btn-outline-primary" (click)="ok()">{{actionButtonText}}</button>
     <button *ngIf="alternateActionButtonText" type="button" class="btn btn-outline-secondary" (click)="alternateAction()">{{alternateActionButtonText}}</button>
     <button *ngIf="cancelButtonText" type="submit" class="btn btn-outline-secondary" (click)="close()">{{cancelButtonText}}</button>
   </div>

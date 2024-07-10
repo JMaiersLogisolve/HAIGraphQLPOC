@@ -1,0 +1,53 @@
+<div class="modal-header bg-info">
+    <h4 class="modal-title">
+        <span>{{activity ? 'Editing Activity ID: ' + activity.id : 'Creating New Activity' }}</span>
+    </h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+</div>
+<form [formGroup]="editForm">
+    <div class="modal-body">
+        <div class="row mb-3">
+            <label for="id" class="form-label">Activity ID</label>
+            <input id="id" type="text" class="form-control" [readonly]="editing" [formControl]="id" [ngClass]="{ 'is-invalid': submitted && id.errors }" />
+            <div *ngIf="submitted && id.errors" class="invalid-feedback">
+                <div *ngIf="id.errors?.['required']">Activity ID is required</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="desc" class="form-label">Activity DESC</label>
+            <input id="desc" type="text" class="form-control" [formControl]="desc" [ngClass]="{ 'is-invalid': submitted && desc.errors }" />
+            <div *ngIf="submitted && desc.errors" class="invalid-feedback">
+                <div *ngIf="desc.errors?.['required']">Activity DESC is required</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="meas" class="form-label">Activity MEAS</label>
+            <input id="meas" type="text" class="form-control" [formControl]="meas" [ngClass]="{ 'is-invalid': submitted && meas.errors }" />
+            <div *ngIf="submitted && meas.errors" class="invalid-feedback">
+                <div *ngIf="meas.errors?.['required']">Activity MEAS is required</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="stkflw" class="form-label">Activity STKFLW</label>
+            <input id="stkflw" type="text" class="form-control" [formControl]="stkflw" [ngClass]="{ 'is-invalid': submitted && stkflw.errors }" />
+            <div *ngIf="submitted && stkflw.errors" class="invalid-feedback">
+                <div *ngIf="stkflw.errors?.['required']">Activity STKFLW is required</div>
+            </div>
+        </div>
+
+        <div class="row mb-3">
+            <label for="sort" class="form-label">Activity SORT</label>
+            <input id="sort" type="text" class="form-control" [formControl]="sort" [ngClass]="{ 'is-invalid': submitted && sort.errors }" />
+            <div *ngIf="submitted && sort.errors" class="invalid-feedback">
+                <div *ngIf="sort.errors?.['required']">Activity SORT is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn btn-primary w-40 py-2 me-2" (click)="onSubmit()">Submit</button>
+        <button type="submit" class="btn btn-secondary" (click)="closeModal()">Cancel</button>
+    </div>
+</form>

@@ -6,6 +6,8 @@ import { ApolloQueryResult } from '@apollo/client/core';
 import { GridColumn } from '../../models/grid-column';
 import { ColumnHeaderSortableComponent } from "../common/column-header-sortable/column-header-sortable.component";
 import { SortParameter } from '../../models/sort-parameter';
+import { ActivityDetailModalComponent } from '../activity-detail-modal/activity-detail-modal.component';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-activities-list',
@@ -20,7 +22,7 @@ export class ActivitiesListComponent implements OnInit {
   sortParameter: SortParameter;
   loading = false;
 
-  constructor(private activityService: ActivityService) {
+  constructor(private activityService: ActivityService, private modalService: NgbModal) {
     this.sortParameter = { field: 'id', isDescending: false };
 
     this.gridColumns = [
@@ -53,5 +55,18 @@ export class ActivitiesListComponent implements OnInit {
     this.activityService.deleteActivity(id).subscribe(
       // Since deleteActivity refetches the getAllActivities query, we don't actually have to do anything here
     );
+  }
+
+  editActivity(activity: Activity) {
+    if (activity.id) {
+      const modalRef = this.modalService.open(ActivityDetailModalComponent, { centered: true, size: 'lg', scrollable: false });
+      modalRef.componentInstance.activity = activity;
+
+      modalRef.result.then(result => {
+        if (result !== 'Cancel') {
+          //this.activityService.editActivity()
+        }
+      })
+    }
   }
 }
